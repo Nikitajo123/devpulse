@@ -19,4 +19,3 @@ AI-powered GitHub profile dashboard. Enter any GitHub username and get a visual 
 - **AI:** OpenAI API
 - **Data:** GitHub REST API
 
-MIT
