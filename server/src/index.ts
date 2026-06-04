@@ -1,15 +1,17 @@
 import express from 'express'
 import cors from 'cors'
 import dotenv from 'dotenv'
+import githubRoutes from './routes/github.routes'
 
 dotenv.config()
 
 const app = express()
-
 const PORT = process.env.PORT || 3000
 
 app.use(cors())
 app.use(express.json())
+
+app.use('/api/github', githubRoutes)
 
 app.get('/', (req, res) => {
   res.json({ message: 'DevPulse API running' })
@@ -18,5 +20,3 @@ app.get('/', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
 })
-
-
