@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { generateSummary } from './ai.service'
 
 const GITHUB_API = 'https://api.github.com'
 
@@ -28,6 +29,18 @@ export async function getGithubProfile(username: string) {
     }
   }
 
+  const aiSummary = await generateSummary({
+  username: profile.login,
+  publicRepos: profile.public_repos,
+  followers: profile.followers,
+  languages,
+  commitDays,
+  topRepos: repos
+    .sort((a: any, b: any) => b.stargazers_count - a.stargazers_count)
+    .slice(0, 5)
+    .map((repo: any) => ({ name: repo.name }))
+})
+
   return {
     name: profile.name,
     username: profile.login,
@@ -38,6 +51,7 @@ export async function getGithubProfile(username: string) {
     publicRepos: profile.public_repos,
     languages,
     commitDays,
+    aiSummary,
     topRepos: repos
       .sort((a: any, b: any) => b.stargazers_count - a.stargazers_count)
       .slice(0, 5)

@@ -13,6 +13,7 @@ export async function getProfile(req: Request, res: Response) {
     const data = await getGithubProfile(username)
     res.json(data)
   } catch (error: any) {
+    console.log(error)
     if (error.response?.status === 404) {
       res.status(404).json({ error: 'GitHub user not found' })
     } else {
