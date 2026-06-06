@@ -18,7 +18,7 @@ function App() {
     navigate(`/u/${username}`);
     try {
       const res = await axios.get(
-        `http://localhost:3000/api/github/${username}`,
+        `https://devpulse-production-2060.up.railway.app/api/github/${username}`
       );
       setData(res.data);
     } catch (err) {
