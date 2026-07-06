@@ -16,6 +16,6 @@ AI-powered GitHub profile dashboard. Enter any GitHub username and get a visual 
 - **Frontend:** React + TypeScript (Vite)
 - **Backend:** Node.js + Express + TypeScript
 - **Database:** MongoDB
-- **AI:** OpenAI API
+- **AI:** Groq
 - **Data:** GitHub REST API
 
